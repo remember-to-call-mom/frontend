@@ -1,0 +1,9 @@
+{
+  "name": "@rtcm/frontend",
+  "version": "0.0.0",
+  "description": "Remember to Call Mom - Frontend Project",
+  "main": "dist/index.js",
+  "repository": "git@github.com:remember-to-call-mom/frontend.git",
+  "author": "Remember to Call Mom ORG",
+  "license": "MIT"
+}
