@@ -1,15 +1,15 @@
 import {
   create,
   SheetsRegistry,
-} from 'jss'
-import { jssPreset } from 'material-ui/styles'
-import createGenerateClassName from 'material-ui/styles/createGenerateClassName'
+} from 'jss';
+import { jssPreset } from 'material-ui/styles';
+import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
 
 // Configure JSS
-const jss = create(jssPreset())
-jss.options.createGenerateClassName = createGenerateClassName
+const jss = create(jssPreset());
+jss.options.createGenerateClassName = createGenerateClassName;
 
-export const sheetsManager = new Map()
+export const sheetsManager = new Map();
 
 export default function createContext() {
   return {
@@ -18,5 +18,5 @@ export default function createContext() {
     sheetsManager,
     // This is needed in order to inject the critical CSS.
     sheetsRegistry: new SheetsRegistry(),
-  }
+  };
 }

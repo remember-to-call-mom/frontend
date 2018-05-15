@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import JssProvider from 'react-jss/lib/JssProvider'
-import wrapDisplayName from 'recompose/wrapDisplayName'
+import React, { Component } from 'react';
+import JssProvider from 'react-jss/lib/JssProvider';
+import wrapDisplayName from 'recompose/wrapDisplayName';
 
-import { withStyles, MuiThemeProvider } from 'material-ui/styles'
+import { withStyles, MuiThemeProvider } from 'material-ui/styles';
 
-import createContext from './createContext'
+import createContext from './createContext';
 
 // Apply some reset
 const styles = theme => ({
@@ -18,22 +18,22 @@ const styles = theme => ({
       margin: 0,
     },
   },
-})
+});
 
-let AppWrapper = props => props.children
+let AppWrapper = props => props.children;
 
-AppWrapper = withStyles(styles)(AppWrapper)
+AppWrapper = withStyles(styles)(AppWrapper);
 
-const context = createContext()
+const context = createContext();
 
 const withRoot = (BaseComponent, props) => {
   class WithRoot extends Component {
     componentDidMount() {
       // Remove the server-side injected CSS.
-      const jssStyles = document.querySelector('#jss-server-side')
+      const jssStyles = document.querySelector('#jss-server-side');
 
       if (jssStyles && jssStyles.parentNode) {
-        jssStyles.parentNode.removeChild(jssStyles)
+        jssStyles.parentNode.removeChild(jssStyles);
       }
     }
 
@@ -46,15 +46,15 @@ const withRoot = (BaseComponent, props) => {
             </AppWrapper>
           </MuiThemeProvider>
         </JssProvider>
-      )
+      );
     }
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    WithRoot.displayName = wrapDisplayName(BaseComponent, 'withRoot')
+    WithRoot.displayName = wrapDisplayName(BaseComponent, 'withRoot');
   }
 
-  return WithRoot
-}
+  return WithRoot;
+};
 
-export default withRoot
+export default withRoot;

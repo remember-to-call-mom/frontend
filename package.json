@@ -8,20 +8,24 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
+    "jss": "^9.8.1",
     "material-ui": "^1.0.0-beta.45",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-jss": "^8.4.0",
+    "react-scripts": "1.1.4",
+    "recompose": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint  **/*.{js,jsx}"
+    "lint": "eslint . --ext .js,.jsx"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",

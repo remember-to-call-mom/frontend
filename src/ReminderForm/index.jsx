@@ -1,12 +1,18 @@
-import React from "react";
-import ReminderFormBranch from "./ReminderFormBranch";
+import React from 'react';
+import ReminderFormBranch from './ReminderFormBranch';
 
-const withReminderForm = (Component) => class extends React.Component {
+const withReminderForm = Component => class extends React.Component {
+  handleUpdate() {
+    this.setState({});
+  }
+
   render() {
     return (
-      <Component />
-    )
+      <Component
+        onUpdate={this.handleUpdate}
+      />
+    );
   }
-}
+};
 
 export default withReminderForm(ReminderFormBranch);
