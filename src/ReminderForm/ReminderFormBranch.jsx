@@ -5,16 +5,16 @@ import {
   TextField,
   withStyles,
   MenuItem,
-  Button
+  Button,
 } from 'material-ui';
-import classNames from "classnames";
+import classNames from 'classnames';
 
 import {
   CHANNELS,
   INPUT_UNITS,
-} from "../constants"
+} from '../constants';
 
-const styles = (theme) => ({
+const styles = theme => ({
   textField: {
     marginLeft: 1 * theme.spacing.unit,
   },
@@ -35,18 +35,18 @@ const styles = (theme) => ({
 const ReminderFormBranch = ({ classes }) => {
   const textFieldClasses = classNames(
     classes.textField,
-    classes.inlineBlock
+    classes.inlineBlock,
   );
 
   const textFieldShortClasses = classNames(
     classes.textField,
     classes.textFieldShort,
-    classes.inlineBlock
+    classes.inlineBlock,
   );
 
   return (
     <Fragment>
-      <Typography variant="body1" className={ classes.inline }>
+      <Typography variant="body1" className={classes.inline}>
         Remind me with
       </Typography>
 
@@ -54,39 +54,39 @@ const ReminderFormBranch = ({ classes }) => {
         id="channel"
         select
         value="push"
-        className={ textFieldClasses }
+        className={textFieldClasses}
         margin="normal"
       >
         {CHANNELS.map(unit => (
           <MenuItem
             key={`input-${unit}`}
-            value={ unit }
+            value={unit}
           >
             { unit }
           </MenuItem>
         ))}
       </TextField>
 
-      <Typography variant="body1" className={ classes.inline }>
+      <Typography variant="body1" className={classes.inline}>
         to
       </Typography>
 
       <TextField
         id="title"
         value="Call Mom"
-        className={ textFieldClasses }
+        className={textFieldClasses}
         margin="normal"
       />
 
-      <Typography variant="body1" className={ classes.inline }>
+      <Typography variant="body1" className={classes.inline}>
         at most every
       </Typography>
 
       <TextField
         id="min"
         type="number"
-        value={ 4 }
-        className={ textFieldShortClasses }
+        value={4}
+        className={textFieldShortClasses}
         margin="normal"
       />
 
@@ -94,28 +94,28 @@ const ReminderFormBranch = ({ classes }) => {
         id="min-unit"
         select
         value="days"
-        className={ textFieldClasses }
+        className={textFieldClasses}
         margin="normal"
       >
         {INPUT_UNITS.map(unit => (
           <MenuItem
             key={`input-${unit}`}
-            value={ unit }
+            value={unit}
           >
             { unit }
           </MenuItem>
         ))}
       </TextField>
 
-      <Typography variant="body1" className={ classes.inline }>
+      <Typography variant="body1" className={classes.inline}>
         and at least every
       </Typography>
 
       <TextField
         id="max"
         type="number"
-        value={ 10 }
-        className={ textFieldShortClasses }
+        value={10}
+        className={textFieldShortClasses}
         margin="normal"
       />
 
@@ -123,20 +123,20 @@ const ReminderFormBranch = ({ classes }) => {
         id="max-unit"
         select
         value="days"
-        className={ textFieldClasses }
+        className={textFieldClasses}
         margin="normal"
       >
         {INPUT_UNITS.map(unit => (
           <MenuItem
             key={`input-${unit}`}
-            value={ unit }
+            value={unit}
           >
             { unit }
           </MenuItem>
         ))}
       </TextField>
 
-      <Typography variant="body1" className={ classes.inline }>
+      <Typography variant="body1" className={classes.inline}>
         .
       </Typography>
 

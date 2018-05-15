@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint  **/*.js"
+    "lint": "eslint  **/*.{js,jsx}"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
