@@ -32,7 +32,11 @@ const styles = theme => ({
   },
 });
 
-const ReminderFormBranch = ({ classes }) => {
+const ReminderFormBranch = ({
+  values,
+  onUpdate,
+  classes,
+}) => {
   const textFieldClasses = classNames(
     classes.textField,
     classes.inlineBlock,
@@ -53,9 +57,10 @@ const ReminderFormBranch = ({ classes }) => {
       <TextField
         id="channel"
         select
-        value="push"
+        value={values.channel}
         className={textFieldClasses}
         margin="normal"
+        onChange={onUpdate('channel')}
       >
         {CHANNELS.map(unit => (
           <MenuItem
@@ -73,9 +78,10 @@ const ReminderFormBranch = ({ classes }) => {
 
       <TextField
         id="title"
-        value="Call Mom"
+        value={values.title}
         className={textFieldClasses}
         margin="normal"
+        onChange={onUpdate('title')}
       />
 
       <Typography variant="body1" className={classes.inline}>
@@ -85,17 +91,19 @@ const ReminderFormBranch = ({ classes }) => {
       <TextField
         id="min"
         type="number"
-        value={4}
+        value={values.min}
         className={textFieldShortClasses}
         margin="normal"
+        onChange={onUpdate('min')}
       />
 
       <TextField
         id="min-unit"
         select
-        value="days"
+        value={values['min-unit']}
         className={textFieldClasses}
         margin="normal"
+        onChange={onUpdate('min-unit')}
       >
         {INPUT_UNITS.map(unit => (
           <MenuItem
@@ -114,17 +122,19 @@ const ReminderFormBranch = ({ classes }) => {
       <TextField
         id="max"
         type="number"
-        value={10}
+        value={values.max}
         className={textFieldShortClasses}
         margin="normal"
+        onChange={onUpdate('max')}
       />
 
       <TextField
         id="max-unit"
         select
-        value="days"
+        value={values['max-unit']}
         className={textFieldClasses}
         margin="normal"
+        onChange={onUpdate('max-unit')}
       >
         {INPUT_UNITS.map(unit => (
           <MenuItem
@@ -148,6 +158,8 @@ const ReminderFormBranch = ({ classes }) => {
 };
 
 ReminderFormBranch.propTypes = {
+  values: PropTypes.objectOf(PropTypes.any).isRequired,
+  onUpdate: PropTypes.func.isRequired,
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
