@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Typography,
   withStyles,
-} from 'material-ui';
+} from '@material-ui/core';
 
 import AppContainer from './AppContainer';
 import ReminderForm from './ReminderForm';

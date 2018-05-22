@@ -6,7 +6,7 @@ import {
   withStyles,
   MenuItem,
   Button,
-} from 'material-ui';
+} from '@material-ui/core';
 import classNames from 'classnames';
 
 import {
