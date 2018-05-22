@@ -7,6 +7,7 @@ import {
 
 import AppContainer from './AppContainer';
 import ReminderForm from './ReminderForm';
+import ReminderList from './ReminderList';
 
 const styles = theme => ({
   root: {
@@ -22,6 +23,7 @@ const App = ({ classes }) => (
       </Typography>
 
       <ReminderForm />
+      <ReminderList />
     </div>
   </AppContainer>
 );

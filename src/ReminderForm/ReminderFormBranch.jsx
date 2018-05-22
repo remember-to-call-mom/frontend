@@ -63,7 +63,7 @@ const ReminderFormBranch = ({
         margin="normal"
         onChange={onUpdate('channel')}
       >
-        {CHANNELS.map(unit => (
+        {Object.values(CHANNELS).map(unit => (
           <MenuItem
             key={`input-${unit}`}
             value={unit}

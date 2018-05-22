@@ -5,13 +5,13 @@ export const INPUT_UNITS = [
   'months',
 ];
 
-export const CHANNELS = [
-  'push',
-  'email',
-  'webhook',
-];
-
+export const CHANNELS = {
+  PUSH: 'push',
+  EMAIL: 'email',
+  WEBHOOK: 'webhook',
+};
 
 export const STATES = {
   ADD_REMINDER: 'ADD_REMINDER',
+  DELETE_REMINDER: 'DELETE_REMINDER',
 };
