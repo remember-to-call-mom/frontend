@@ -8,7 +8,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatchDelete: payload => dispatch({ type: STATES.DELETE_REMINDER, payload }),
+  dispatchDelete: id => dispatch({
+    type: STATES.DELETE_REMINDER,
+    payload: id,
+  }),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReminderList);

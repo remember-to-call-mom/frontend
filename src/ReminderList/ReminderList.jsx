@@ -5,6 +5,7 @@ import ReminderListBranch from './ReminderListBranch';
 const withReminderList = Component => class ReminderList extends React.Component {
   static propTypes = {
     reminders: PropTypes.arrayOf(PropTypes.object).isRequired,
+    dispatchDelete: PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -14,7 +15,7 @@ const withReminderList = Component => class ReminderList extends React.Component
   }
 
   handleDelete(id) {
-    return (event) => {};
+    return () => this.props.dispatchDelete(id);
   }
 
   render() {
