@@ -14,8 +14,11 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-jss": "^8.4.0",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "recompose": "^0.27.0"
+    "recompose": "^0.27.0",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.2"
   },
   "scripts": {
     "start": "react-scripts start",

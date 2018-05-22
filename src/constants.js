@@ -10,3 +10,8 @@ export const CHANNELS = [
   'email',
   'webhook',
 ];
+
+
+export const STATES = {
+  ADD_REMINDER: 'ADD_REMINDER',
+};

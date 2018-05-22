@@ -35,6 +35,7 @@ const styles = theme => ({
 const ReminderFormBranch = ({
   values,
   onUpdate,
+  onSave,
   classes,
 }) => {
   const textFieldClasses = classNames(
@@ -150,7 +151,7 @@ const ReminderFormBranch = ({
         .
       </Typography>
 
-      <Button variant="raised" color="secondary">
+      <Button variant="raised" color="secondary" onClick={onSave}>
         Add reminder
       </Button>
     </Fragment>
@@ -160,6 +161,7 @@ const ReminderFormBranch = ({
 ReminderFormBranch.propTypes = {
   values: PropTypes.objectOf(PropTypes.any).isRequired,
   onUpdate: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
