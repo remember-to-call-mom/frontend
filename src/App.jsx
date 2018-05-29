@@ -6,11 +6,11 @@ import {
   withStyles,
   Toolbar,
 } from '@material-ui/core';
+import Walls from 'walls';
 
 import AppContainer from './AppContainer';
-import ReminderForm from './ReminderForm';
-import ReminderList from './ReminderList';
 import Navigation from './Navigation';
+import Routes from './Routes';
 
 const styles = theme => ({
   root: {
@@ -34,12 +34,13 @@ const App = ({ classes }) => (
     </AppBar>
 
     <div className={classes.root}>
-      <ReminderForm />
-      <ReminderList />
+      <Walls
+        routes={Routes}
+        isAuthorized
+      />
     </div>
 
     <Navigation value={0} />
-
   </AppContainer>
 );
 
