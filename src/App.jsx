@@ -10,10 +10,16 @@ import {
 import AppContainer from './AppContainer';
 import ReminderForm from './ReminderForm';
 import ReminderList from './ReminderList';
+import Navigation from './Navigation';
 
 const styles = theme => ({
   root: {
     margin: 2 * theme.spacing.unit,
+  },
+  addButton: {
+    position: 'fixed',
+    right: 2 * theme.spacing.unit,
+    bottom: 2 * theme.spacing.unit,
   },
 });
 
@@ -31,6 +37,9 @@ const App = ({ classes }) => (
       <ReminderForm />
       <ReminderList />
     </div>
+
+    <Navigation value={0} />
+
   </AppContainer>
 );
 

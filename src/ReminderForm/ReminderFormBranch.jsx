@@ -15,12 +15,14 @@ import {
 } from '../constants';
 
 const styles = theme => ({
-  textField: {
-    marginLeft: 1 * theme.spacing.unit,
-  },
+  textField: {},
 
   textFieldShort: {
     width: 4 * theme.spacing.unit,
+  },
+
+  textFieldLong: {
+    width: '100%',
   },
 
   inline: {
@@ -46,6 +48,12 @@ const ReminderFormBranch = ({
   const textFieldShortClasses = classNames(
     classes.textField,
     classes.textFieldShort,
+    classes.inlineFlex,
+  );
+
+  const textFieldLongClasses = classNames(
+    classes.textField,
+    classes.textFieldLong,
     classes.inlineFlex,
   );
 
@@ -80,7 +88,8 @@ const ReminderFormBranch = ({
       <TextField
         id="title"
         value={values.title}
-        className={textFieldClasses}
+        className={textFieldLongClasses}
+        multiline
         margin="normal"
         onChange={onUpdate('title')}
       />
@@ -151,9 +160,11 @@ const ReminderFormBranch = ({
         .
       </Typography>
 
-      <Button variant="raised" color="secondary" onClick={onSave}>
-        Add reminder
-      </Button>
+      <div>
+        <Button variant="raised" color="secondary" onClick={onSave}>
+          Add reminder
+        </Button>
+      </div>
     </Fragment>
   );
 };
