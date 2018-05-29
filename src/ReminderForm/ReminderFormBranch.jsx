@@ -27,8 +27,8 @@ const styles = theme => ({
     display: 'inline',
   },
 
-  inlineBlock: {
-    display: 'inline-block',
+  inlineFlex: {
+    display: 'inline-flex',
   },
 });
 
@@ -40,13 +40,13 @@ const ReminderFormBranch = ({
 }) => {
   const textFieldClasses = classNames(
     classes.textField,
-    classes.inlineBlock,
+    classes.inlineFlex,
   );
 
   const textFieldShortClasses = classNames(
     classes.textField,
     classes.textFieldShort,
-    classes.inlineBlock,
+    classes.inlineFlex,
   );
 
   return (
