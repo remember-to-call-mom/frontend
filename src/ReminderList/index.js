@@ -4,7 +4,7 @@ import { STATES } from '../constants';
 import ReminderList from './ReminderList';
 
 const mapStateToProps = state => ({
-  reminders: state,
+  reminders: state.reminders,
 });
 
 const mapDispatchToProps = dispatch => ({

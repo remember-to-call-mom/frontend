@@ -5,10 +5,7 @@ import {
   BottomNavigationAction,
   withStyles,
 } from '@material-ui/core';
-
-import RemindersIcon from '@material-ui/icons/List';
-import ProfileIcon from '@material-ui/icons/Person';
-import AddIcon from '@material-ui/icons/Add';
+import { ROUTES_MAPPING } from '../constants';
 
 const styles = theme => ({
   root: {
@@ -20,22 +17,26 @@ const styles = theme => ({
   },
 });
 
-const Navigation = ({ value, onChange, classes }) => (
+const NavigationBranch = ({ value, onChange, classes }) => (
   <BottomNavigation
     value={value}
     onChange={onChange}
     className={classes.root}
   >
-    <BottomNavigationAction label="Reminders" icon={<RemindersIcon />} />
-    <BottomNavigationAction label="Add" icon={<AddIcon />} />
-    <BottomNavigationAction label="Profile" icon={<ProfileIcon />} />
+    {Object.values(ROUTES_MAPPING).map(route => (
+      <BottomNavigationAction
+        key={route.index}
+        label={route.label}
+        icon={<route.iconComponent />}
+      />
+    ))}
   </BottomNavigation>
 );
 
-Navigation.propTypes = {
-  value: PropTypes.string.isRequired,
+NavigationBranch.propTypes = {
+  value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
-export default withStyles(styles)(Navigation);
+export default withStyles(styles)(NavigationBranch);
