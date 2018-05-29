@@ -14,7 +14,6 @@ import ReminderList from './ReminderList';
 const styles = theme => ({
   root: {
     margin: 2 * theme.spacing.unit,
-    overflow: 'hidden',
   },
 });
 
