@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import uuidv4 from 'uuid/v4';
 
-import { STATES, ROUTES_MAPPING } from './constants';
+import { STATES } from './constants';
 
 const remindersReducer = (state = [], action) => {
   switch (action.type) {
@@ -25,24 +25,8 @@ const remindersReducer = (state = [], action) => {
   }
 };
 
-const navigationReducer = (state = '/', action) => {
-  switch (action.type) {
-    case STATES.UPDATE_NAVIGATION: {
-      const currentRoute = Object.values(ROUTES_MAPPING)
-        .find(routes => action.payload === routes.index);
-
-      return currentRoute.url;
-    }
-
-    default: {
-      return state;
-    }
-  }
-};
-
 const rootReducer = (state = {}, action) => ({
   reminders: remindersReducer(state.reminders, action),
-  navigation: navigationReducer(state.navigation, action),
 });
 
 const store = createStore(rootReducer, composeWithDevTools());

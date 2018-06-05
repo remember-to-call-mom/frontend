@@ -37,10 +37,11 @@ const App = ({ classes }) => (
       <Walls
         routes={Routes}
         isAuthorized
-      />
+      >
+        <Navigation />
+      </Walls>
     </div>
 
-    <Navigation value={0} />
   </AppContainer>
 );
 

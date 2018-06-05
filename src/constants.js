@@ -33,13 +33,13 @@ export const ROUTES_MAPPING = {
     url: '/add',
     label: 'Add',
     index: 1,
-    iconComponent: ProfileIcon,
+    iconComponent: AddIcon,
   },
 
   PROFILE: {
     url: '/profile',
     label: 'Profile',
     index: 2,
-    iconComponent: AddIcon,
+    iconComponent: ProfileIcon,
   },
 };
