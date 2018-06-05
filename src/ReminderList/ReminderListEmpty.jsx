@@ -36,7 +36,7 @@ const ReminderListEmpty = ({ classes }) => (
       <Typography variant="display1">So sad</Typography>
       <Typography variant="body1">You don’t have any reminders yet.</Typography>
 
-      <Link to="/add" className={classes.link}>
+      <Link to="/add" href="/add" className={classes.link}>
         <Button variant="raised" color="secondary" className={classes.button}>
           Add a new reminder now
         </Button>
