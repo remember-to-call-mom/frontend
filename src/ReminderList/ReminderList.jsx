@@ -21,10 +21,6 @@ const withReminderList = Component => class ReminderList extends React.Component
   render() {
     const { reminders } = this.props;
 
-    if (reminders.length < 1) {
-      return null;
-    }
-
     return (
       <Component
         onDelete={this.handleDelete}

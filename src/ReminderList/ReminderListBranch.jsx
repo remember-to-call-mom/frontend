@@ -17,6 +17,7 @@ import WebhookIcon from '@material-ui/icons/Cloud';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import { CHANNELS } from '../constants';
+import ReminderListEmpty from './ReminderListEmpty';
 
 const Icon = ({ channel }) => {
   if (channel === CHANNELS.PUSH) {
@@ -38,36 +39,42 @@ Icon.propTypes = {
   channel: PropTypes.oneOf(Object.values(CHANNELS)).isRequired,
 };
 
-const ReminderListBranch = ({ reminders, onDelete }) => (
-  <Fragment>
-    <Typography variant="display1">
-      Your reminders
-    </Typography>
+const ReminderListBranch = ({ reminders, onDelete }) => {
+  if (reminders.length < 1) {
+    return <ReminderListEmpty />;
+  }
 
-    <List>
-      {reminders.map(reminder => (
-        <ListItem key={reminder.id}>
-          <Avatar>
-            <Icon channel={reminder.channel} />
-          </Avatar>
+  return (
+    <Fragment>
+      <Typography variant="display1">
+        Your reminders
+      </Typography>
 
-          <ListItemText
-            primary={reminder.title}
-            secondary={
-              `Min: ${reminder.min} ${reminder['min-unit']}, max: ${reminder.max} ${reminder['max-unit']}`
-            }
-          />
+      <List>
+        {reminders.map(reminder => (
+          <ListItem key={reminder.id}>
+            <Avatar>
+              <Icon channel={reminder.channel} />
+            </Avatar>
 
-          <ListItemSecondaryAction>
-            <IconButton aria-label="Delete" onClick={onDelete(reminder.id)}>
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-    </List>
-  </Fragment>
-);
+            <ListItemText
+              primary={reminder.title}
+              secondary={
+                `Min: ${reminder.min} ${reminder['min-unit']}, max: ${reminder.max} ${reminder['max-unit']}`
+              }
+            />
+
+            <ListItemSecondaryAction>
+              <IconButton aria-label="Delete" onClick={onDelete(reminder.id)}>
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+    </Fragment>
+  );
+};
 
 ReminderListBranch.propTypes = {
   reminders: PropTypes.arrayOf(PropTypes.object).isRequired,
