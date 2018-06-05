@@ -25,8 +25,21 @@ const remindersReducer = (state = [], action) => {
   }
 };
 
+const routeReducer = (state = window.location.pathname, action) => {
+  switch (action.type) {
+    case STATES.UPDATE_NAVIGATION: {
+      return action.payload;
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
+
 const rootReducer = (state = {}, action) => ({
   reminders: remindersReducer(state.reminders, action),
+  route: routeReducer(state.route, action),
 });
 
 const store = createStore(rootReducer, composeWithDevTools());
