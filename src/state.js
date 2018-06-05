@@ -1,4 +1,8 @@
-import { createStore } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+} from 'redux';
+
 import { composeWithDevTools } from 'redux-devtools-extension';
 import uuidv4 from 'uuid/v4';
 
@@ -42,6 +46,23 @@ const rootReducer = (state = {}, action) => ({
   route: routeReducer(state.route, action),
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+const middleware = store => next => (action) => {
+  const result = next(action);
+
+  if (action.type === STATES.ADD_REMINDER) {
+    store.dispatch({
+      type: STATES.UPDATE_NAVIGATION,
+      payload: '/',
+    });
+  }
+
+  return result;
+};
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(middleware)),
+);
+
 
 export default store;

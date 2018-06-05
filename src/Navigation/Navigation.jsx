@@ -30,6 +30,12 @@ const withNavigation = Component =>
       });
     }
 
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.route !== this.props.route) {
+        this.props.history.push(nextProps.route);
+      }
+    }
+
     handleChange(event, state) {
       const currentRoute = Object.values(ROUTES_MAPPING)
         .find(route => route.index === state);
