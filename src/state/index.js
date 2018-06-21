@@ -4,6 +4,7 @@ import {
 } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import uuidv4 from 'uuid/v4';
+import localforage from 'localforage';
 import { STATES } from '../constants';
 import navigationMiddleware from './navigationMiddleware';
 import storageMiddleware from './storageMiddleware';
@@ -48,10 +49,18 @@ const rootReducer = (state = {}, action) => ({
   route: routeReducer(state.route, action),
 });
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(navigationMiddleware, storageMiddleware)),
-);
+const initStore = async () => {
+  let stateFromLocal = {};
+  try {
+    stateFromLocal = await localforage.getItem('state');
+  } catch (error) {
+    console.error('Failed to load state from local:', error);
+  }
+  return createStore(
+    rootReducer,
+    stateFromLocal,
+    composeWithDevTools(applyMiddleware(navigationMiddleware, storageMiddleware)),
+  );
+};
 
-
-export default store;
+export default initStore;
