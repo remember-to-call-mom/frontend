@@ -29,3 +29,5 @@ Remember to Call Mom - Random Reminder
 * max: number
 * max-unit: string, ['hours', 'days', 'weeks', 'months']
 * limit: boolean
+* createdAt: timestamp
+* updatedAt: timestamp

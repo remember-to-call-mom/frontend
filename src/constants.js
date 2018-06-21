@@ -2,6 +2,8 @@ import RemindersIcon from '@material-ui/icons/List';
 import ProfileIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
 
+export const APP_NAME = 'RTCM';
+
 export const INPUT_UNITS = [
   'hours',
   'days',

@@ -2,11 +2,11 @@ import {
   createStore,
   applyMiddleware,
 } from 'redux';
-
 import { composeWithDevTools } from 'redux-devtools-extension';
 import uuidv4 from 'uuid/v4';
-
-import { STATES } from './constants';
+import { STATES } from '../constants';
+import navigationMiddleware from './navigationMiddleware';
+import storageMiddleware from './storageMiddleware';
 
 const remindersReducer = (state = [], action) => {
   switch (action.type) {
@@ -14,6 +14,8 @@ const remindersReducer = (state = [], action) => {
       const payload = {
         ...action.payload,
         id: uuidv4(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
       };
 
       return [...state, payload];
@@ -46,22 +48,9 @@ const rootReducer = (state = {}, action) => ({
   route: routeReducer(state.route, action),
 });
 
-const middleware = store => next => (action) => {
-  const result = next(action);
-
-  if (action.type === STATES.ADD_REMINDER) {
-    store.dispatch({
-      type: STATES.UPDATE_NAVIGATION,
-      payload: '/',
-    });
-  }
-
-  return result;
-};
-
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(middleware)),
+  composeWithDevTools(applyMiddleware(navigationMiddleware, storageMiddleware)),
 );
 
 
