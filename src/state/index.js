@@ -51,11 +51,17 @@ const rootReducer = (state = {}, action) => ({
 
 const initStore = async () => {
   let stateFromLocal = {};
+
   try {
-    stateFromLocal = await localforage.getItem('state');
+    const localState = await localforage.getItem('state');
+
+    if (localState) {
+      stateFromLocal = localState;
+    }
   } catch (error) {
     console.error('Failed to load state from local:', error);
   }
+
   return createStore(
     rootReducer,
     stateFromLocal,

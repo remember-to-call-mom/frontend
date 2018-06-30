@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 (async () => {
   const store = await createStore();
+
   ReactDOM.render(
     <Provider store={store}>
       <App />
